@@ -11,7 +11,7 @@ public class GeneralInfoRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @CacheEvict(value = "messages")
+    @CacheEvict(value = "messages",allEntries = true)
     public int addMessage(PostMessageEntity entity){
         return jdbcTemplate.update("insert into messages values(0,?,?);",entity.getEmailId(),entity.getMessage());
     }
