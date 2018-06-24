@@ -23,6 +23,7 @@ public class GeneralInfoController {
     }
 
     @ResponseBody
+    @CrossOrigin(origins = "http://localhost:8000")
     @RequestMapping(value = "/api-g/postMessage",method = RequestMethod.POST)
     public ResponseEntity<GenericResponseEntity> insertMessage(@RequestBody PostMessageEntity entity){
         int insertionStatus = gRepo.addMessage(entity);
